@@ -9,7 +9,7 @@ const SEOHead = () => {
   const { currentLanguage } = useLanguage();
   const location = useLocation();
 
-  const siteUrl = process.env.REACT_APP_SITE_URL || 'https://yoursite.com';
+  const siteUrl = process.env.REACT_APP_SITE_URL || 'https://dailyhoroscopetoday.org';
   const currentUrl = `${siteUrl}${location.pathname}`;
 
   return (
