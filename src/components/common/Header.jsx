@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import LanguageSelector from './LanguageSelector';
 import { useTheme } from '../theme/ThemeProvider';
@@ -6,6 +6,7 @@ import { useTheme } from '../theme/ThemeProvider';
 const Header = ({ content = {} }) => {
   const location = useLocation();
   const { theme } = useTheme();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   // 修复语言检测逻辑
   const getCurrentLanguage = () => {
@@ -45,7 +46,7 @@ const Header = ({ content = {} }) => {
             </h1>
           </Link>
 
-          {/* Navigation */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link 
               to={getHomePath()} 
@@ -63,9 +64,52 @@ const Header = ({ content = {} }) => {
             </Link>
           </nav>
 
-          {/* Language Selector */}
-          <LanguageSelector />
+          {/* Desktop Language Selector */}
+          <div className="hidden md:block">
+            <LanguageSelector />
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+          >
+            <div className="flex flex-col space-y-1">
+              <span className={`block w-5 h-0.5 bg-white transition-transform ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+              <span className={`block w-5 h-0.5 bg-white transition-opacity ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+              <span className={`block w-5 h-0.5 bg-white transition-transform ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+            </div>
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden mt-4 pb-4 border-t border-white/20">
+            <nav className="flex flex-col space-y-2 mt-4">
+              <Link 
+                to={getHomePath()} 
+                className="px-4 py-3 rounded-lg hover:bg-white/10 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {finalContent.home}
+              </Link>
+              <Link 
+                to={currentLanguage === 'zh' ? '/zh/about' : '/about'} 
+                className="px-4 py-3 rounded-lg hover:bg-white/10 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {finalContent.about}
+              </Link>
+            </nav>
+            
+            {/* Mobile Language Selector */}
+            <div className="mt-4 pt-4 border-t border-white/20">
+              <div className="flex justify-center">
+                <LanguageSelector />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );
