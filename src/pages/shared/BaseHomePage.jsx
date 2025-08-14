@@ -9,12 +9,17 @@ import HoroscopeChart from '../../components/charts/HoroscopeChart';
 import ThemeSelector from '../../components/theme/ThemeSelector';
 import { useTheme } from '../../components/theme/ThemeProvider';
 import '../../styles/animations.css';
+import { Link } from 'react-router-dom';
 
 const BaseHomePage = ({ language, content }) => {
   const { theme } = useTheme();
   const [dailyHoroscopes, setDailyHoroscopes] = useState({});
   const [featuredSign, setFeaturedSign] = useState('leo');
   const [loading, setLoading] = useState(true);
+
+  // 每日运势链接
+  const today = new Date();
+  const todayPath = `${language === 'zh' ? '/zh' : ''}/daily-horoscope/${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`;
 
   // 创建默认内容对象
   const defaultContent = {
@@ -75,7 +80,7 @@ const BaseHomePage = ({ language, content }) => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
-          <p className={`${theme.colors.textSecondary}`}>{content.loading}</p>
+          <p className={`${theme.colors.textSecondary}`}>{content?.loading || (language === 'zh' ? '加载中...' : 'Loading...')}</p>
         </div>
       </div>
     );
@@ -90,10 +95,10 @@ const BaseHomePage = ({ language, content }) => {
         
         <div className="relative max-w-6xl mx-auto text-center text-white">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-            {content.title}
+            {content?.title || (language === 'zh' ? '每日星座运势' : 'Daily Horoscope')}
           </h1>
           <p className="text-xl md:text-2xl mb-8 opacity-90 animate-slide-up">
-            {content.subtitle}
+            {content?.subtitle || (language === 'zh' ? '探索你的星座运势' : 'Discover your zodiac fortune')}
           </p>
           
           <div className="flex justify-center gap-4 mb-8">
@@ -101,9 +106,19 @@ const BaseHomePage = ({ language, content }) => {
             <ShareButton 
               content={finalContent}
               url={window.location.href}
-              title={content.title}
-              description={content.subtitle}
+              title={content?.title || (language === 'zh' ? '每日星座运势' : 'Daily Horoscope')}
+              description={content?.subtitle || (language === 'zh' ? '探索你的星座运势' : 'Discover your zodiac fortune')}
             />
+          </div>
+          
+          {/* 每日运势排行榜链接 */}
+          <div className="mt-8">
+            <Link 
+              to={todayPath}
+              className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 inline-block"
+            >
+              {language === 'zh' ? '🌟 今日运势排行榜' : '🌟 Today\'s Rankings'}
+            </Link>
           </div>
         </div>
       </section>
@@ -113,7 +128,7 @@ const BaseHomePage = ({ language, content }) => {
         <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className={`text-3xl font-bold text-center mb-12 ${theme.colors.textPrimary}`}>
-              {content.todaysFortune}
+              {content?.todaysFortune || (language === 'zh' ? '今日运势' : "Today's Fortune")}
             </h2>
             <HoroscopeCard 
               sign={featuredSign}
@@ -130,7 +145,7 @@ const BaseHomePage = ({ language, content }) => {
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className={`text-3xl font-bold text-center mb-12 ${theme.colors.textPrimary}`}>
-            {content.allSigns}
+            {content?.allSigns || (language === 'zh' ? '所有星座' : 'All Signs')}
           </h2>
           <ZodiacGrid 
             horoscopes={dailyHoroscopes}
@@ -144,7 +159,7 @@ const BaseHomePage = ({ language, content }) => {
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className={`text-3xl font-bold text-center mb-12 ${theme.colors.textPrimary}`}>
-            {content.weeklyTrend}
+            {content?.weeklyTrend || (language === 'zh' ? '本周趋势' : 'Weekly Trend')}
           </h2>
           <HoroscopeChart 
             content={finalContent}

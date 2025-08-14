@@ -2,21 +2,7 @@
 /* 引入 Tailwind 组件层 */
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 * {
   margin: 0;
@@ -28,7 +14,13 @@ body {
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
   color: #333;
-  background-color: #f8fafc;
+  background-color: #fef7f0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
 }
 
 .container {
@@ -37,54 +29,141 @@ body {
   padding: 0 1rem;
 }
 
-/* 自定义滚动条 */
+/* 温暖渐变风格的自定义滚动条 */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: linear-gradient(to bottom, #fed7aa, #fecaca);
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 4px;
+  background: linear-gradient(to bottom, #fb923c, #f97316);
+  border-radius: 5px;
+  border: 2px solid #fed7aa;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a1a1a1;
+  background: linear-gradient(to bottom, #ea580c, #dc2626);
+}
+
+/* 温暖渐变动画 */
+.warm-gradient-animation {
+  background: linear-gradient(-45deg, #ff9a9e, #fecfef, #fecfef, #ff9a9e);
+  background-size: 400% 400%;
+  animation: warmGradient 8s ease infinite;
+}
+
+@keyframes warmGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 卡片悬浮效果 */
+.warm-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(251, 146, 60, 0.2);
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.warm-card:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(251, 146, 60, 0.4);
+  box-shadow: 0 20px 40px rgba(251, 146, 60, 0.15);
+  transform: translateY(-5px);
+}
+
+/* 按钮样式 */
+.warm-button {
+  background: linear-gradient(135deg, #fb923c, #f97316, #ec4899);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  padding: 12px 24px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.warm-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.warm-button:hover::before {
+  left: 100%;
+}
+
+.warm-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(251, 146, 60, 0.3);
+}
+
+/* 文字渐变 */
+.warm-text-gradient {
+  background: linear-gradient(135deg, #fb923c, #ec4899, #f97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* 动画类 */
 .fade-in {
-  animation: fadeIn 0.5s ease-in;
+  animation: fadeIn 0.8s ease-in;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .slide-up {
-  animation: slideUp 0.3s ease-out;
+  animation: slideUp 0.6s ease-out;
 }
 
 @keyframes slideUp {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
-/* 响应式工具类 */
+.bounce-in {
+  animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* 响应式 */
 @media (max-width: 768px) {
   .container {
-    padding: 0 0.5rem;
+    padding: 0 1rem;
+  }
+  
+  .warm-card {
+    border-radius: 15px;
   }
 }
 
 /* 深色模式支持 */
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #1a202c;
+    background-color: #1f1f1f;
     color: #e2e8f0;
   }
 }

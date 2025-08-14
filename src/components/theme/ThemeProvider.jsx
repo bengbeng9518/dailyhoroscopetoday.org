@@ -10,14 +10,32 @@ export const useTheme = () => {
   return context;
 };
 
-// 将主题定义移到组件内部，这样可以访问翻译函数
 export const ThemeProvider = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = useState('light');
+  const [currentTheme, setCurrentTheme] = useState('warmGradient');
 
-  // 静态主题定义（不依赖翻译）
   const themes = {
+    warmGradient: {
+      name: '温暖渐变',
+      icon: '🌅',
+      colors: {
+        primary: 'from-orange-400 via-pink-400 to-red-400',
+        secondary: 'from-yellow-300 via-orange-400 to-pink-400',
+        tertiary: 'from-pink-300 via-rose-300 to-orange-300',
+        background: 'from-orange-50 via-pink-50 to-rose-50',
+        card: 'bg-white/80 backdrop-blur-sm border border-orange-100/50',
+        cardHover: 'bg-white/90 border-orange-200/70 shadow-lg shadow-orange-100/50',
+        text: 'text-gray-800',
+        textSecondary: 'text-orange-700',
+        textAccent: 'text-pink-600',
+        button: 'bg-gradient-to-r from-orange-400 to-pink-400 hover:from-orange-500 hover:to-pink-500',
+        buttonSecondary: 'bg-gradient-to-r from-yellow-300 to-orange-400 hover:from-yellow-400 hover:to-orange-500',
+        accent: 'text-orange-500',
+        border: 'border-orange-200/30',
+        shadow: 'shadow-orange-100/50'
+      }
+    },
     light: {
-      name: '明亮模式', // 保持静态文本，避免循环依赖
+      name: '明亮模式',
       icon: '☀️',
       colors: {
         primary: 'from-purple-600 to-blue-600',
@@ -82,7 +100,7 @@ export const ThemeProvider = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={{ currentTheme, theme, themes, changeTheme }}>
-      <div className={`min-h-screen bg-gradient-to-br ${theme.colors.background} transition-all duration-500`}>
+      <div className={`min-h-screen bg-gradient-to-br ${theme.colors.background} transition-all duration-700`}>
         {children}
       </div>
     </ThemeContext.Provider>

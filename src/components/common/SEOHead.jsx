@@ -1,47 +1,50 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocation } from 'react-router-dom';
-import { useTranslation } from '../../hooks/useTranslation';
-import { useLanguage } from '../../hooks/useLanguage';
 
-const SEOHead = () => {
-  const { t } = useTranslation();
-  const { currentLanguage } = useLanguage();
+const SEOHead = ({ title, description, language = 'en' }) => {
   const location = useLocation();
-
   const siteUrl = process.env.REACT_APP_SITE_URL || 'https://dailyhoroscopetoday.org';
   const currentUrl = `${siteUrl}${location.pathname}`;
 
+  // 默认SEO内容
+  const defaultTitle = language === 'zh' ? '每日星座运势 - 今日运势查询' : 'Daily Horoscope Today - Your Daily Astrology Guide';
+  const defaultDescription = language === 'zh' 
+    ? '查看今日十二星座运势，获取专业的星座分析和运势预测。每日更新，准确可靠。'
+    : 'Check your daily horoscope for all 12 zodiac signs. Get professional astrology analysis and fortune predictions. Updated daily.';
+  
+  const pageTitle = title || defaultTitle;
+  const pageDescription = description || defaultDescription;
+  const keywords = language === 'zh'
+    ? '星座运势,每日运势,十二星座,星座查询,运势预测,占星术'
+    : 'horoscope, daily horoscope, zodiac signs, astrology, fortune, predictions';
+
   return (
     <Helmet>
-      <html lang={currentLanguage} />
-      <title>{t('seo.title')}</title>
-      <meta name="description" content={t('seo.description')} />
-      <meta name="keywords" content={t('seo.keywords')} />
+      <html lang={language} />
+      <title>{pageTitle}</title>
+      <meta name="description" content={pageDescription} />
+      <meta name="keywords" content={keywords} />
       
       {/* Open Graph */}
-      <meta property="og:title" content={t('seo.title')} />
-      <meta property="og:description" content={t('seo.description')} />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={pageDescription} />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:type" content="website" />
-      <meta property="og:locale" content={currentLanguage} />
+      <meta property="og:locale" content={language === 'zh' ? 'zh_CN' : 'en_US'} />
       
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={t('seo.title')} />
-      <meta name="twitter:description" content={t('seo.description')} />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content={pageDescription} />
       
       {/* Canonical URL */}
       <link rel="canonical" href={currentUrl} />
       
       {/* Hreflang for multilingual SEO */}
-      <link rel="alternate" hrefLang="en" href={`${siteUrl}/en`} />
+      <link rel="alternate" hrefLang="en" href={`${siteUrl}/`} />
       <link rel="alternate" hrefLang="zh" href={`${siteUrl}/zh`} />
-      <link rel="alternate" hrefLang="es" href={`${siteUrl}/es`} />
-      <link rel="alternate" hrefLang="fr" href={`${siteUrl}/fr`} />
-      <link rel="alternate" hrefLang="de" href={`${siteUrl}/de`} />
-      <link rel="alternate" hrefLang="ja" href={`${siteUrl}/ja`} />
-      <link rel="alternate" hrefLang="ko" href={`${siteUrl}/ko`} />
+      <link rel="alternate" hrefLang="x-default" href={`${siteUrl}/`} />
     </Helmet>
   );
 };

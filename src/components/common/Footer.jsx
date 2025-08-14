@@ -1,9 +1,10 @@
 import React from 'react';
+import { useTheme } from '../theme/ThemeProvider';
 
 const Footer = ({ content = {} }) => {
   const currentYear = new Date().getFullYear();
+  const { theme } = useTheme();
 
-  // 默认内容
   const defaultContent = {
     siteTitle: 'Daily Horoscope',
     siteDescription: 'Get your daily horoscope and zodiac predictions.',
@@ -17,43 +18,56 @@ const Footer = ({ content = {} }) => {
     allRightsReserved: 'All rights reserved.'
   };
 
-  // 合并默认内容和传入的内容
   const finalContent = { ...defaultContent, ...content };
 
   return (
-    <footer className="bg-gray-800 text-white py-8">
-      <div className="container mx-auto px-4">
+    <footer className={`bg-gradient-to-r ${theme.colors.secondary} text-white py-12 mt-16`}>
+      <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-8">
           {/* 网站信息 */}
-          <div>
-            <h3 className="text-lg font-bold mb-4">{finalContent.siteTitle}</h3>
-            <p className="text-gray-300 text-sm">
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-yellow-100 bg-clip-text text-transparent">
+              {finalContent.siteTitle}
+            </h3>
+            <p className="text-orange-100 text-sm leading-relaxed">
               {finalContent.siteDescription}
             </p>
+            <div className="flex space-x-4">
+              <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors cursor-pointer">
+                <span className="text-sm">📧</span>
+              </div>
+              <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors cursor-pointer">
+                <span className="text-sm">📱</span>
+              </div>
+              <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors cursor-pointer">
+                <span className="text-sm">🌐</span>
+              </div>
+            </div>
           </div>
 
           {/* 快速链接 */}
-          <div>
-            <h4 className="font-semibold mb-4">{finalContent.quickLinks}</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-gray-300 hover:text-white">{finalContent.home}</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white">{finalContent.about}</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white">{finalContent.privacy}</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white">{finalContent.terms}</a></li>
+          <div className="space-y-4">
+            <h4 className="font-semibold text-lg text-yellow-100">{finalContent.quickLinks}</h4>
+            <ul className="space-y-3 text-sm">
+              <li><a href="#" className="text-orange-100 hover:text-white transition-colors hover:underline">{finalContent.home}</a></li>
+              <li><a href="#" className="text-orange-100 hover:text-white transition-colors hover:underline">{finalContent.about}</a></li>
+              <li><a href="#" className="text-orange-100 hover:text-white transition-colors hover:underline">{finalContent.privacy}</a></li>
+              <li><a href="#" className="text-orange-100 hover:text-white transition-colors hover:underline">{finalContent.terms}</a></li>
             </ul>
           </div>
 
           {/* 免责声明 */}
-          <div>
-            <h4 className="font-semibold mb-4">{finalContent.disclaimer}</h4>
-            <p className="text-gray-300 text-sm">
+          <div className="space-y-4">
+            <h4 className="font-semibold text-lg text-yellow-100">{finalContent.disclaimer}</h4>
+            <p className="text-orange-100 text-sm leading-relaxed">
               {finalContent.disclaimerText}
             </p>
+            <div className="pt-4 border-t border-white/20">
+              <p className="text-xs text-orange-200">
+                © {currentYear} {finalContent.siteTitle}. {finalContent.allRightsReserved}
+              </p>
+            </div>
           </div>
-        </div>
-
-        <div className="border-t border-gray-700 mt-8 pt-4 text-center text-sm text-gray-300">
-          <p>&copy; {currentYear} {finalContent.siteTitle}. {finalContent.allRightsReserved}</p>
         </div>
       </div>
     </footer>

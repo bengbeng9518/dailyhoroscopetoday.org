@@ -1,0 +1,52 @@
+name: Generate Daily Horoscope
+
+on:
+  schedule:
+    # 每天 UTC 时间 00:00 (北京时间 08:00) 运行
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  generate-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Generate daily horoscope data
+      run: node scripts/generate-daily-page.js
+    
+    - name: Build project
+      run: npm run build
+      env:
+        REACT_APP_SITE_URL: https://dailyhoroscopetoday.org
+    
+    - name: Update sitemap
+      run: node scripts/update-sitemap.js
+    
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git diff --staged --quiet || git commit -m "Generate daily horoscope for $(date +'%Y-%m-%d')"
+        git push
+    
+    - name: Deploy to Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
+        cname: dailyhoroscopetoday.org
