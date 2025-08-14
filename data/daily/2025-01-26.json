@@ -1,0 +1,72 @@
+{
+  "date": "2025-01-26",
+  "timestamp": 1737878400000,
+  "en": {
+    "title": "January 26, 2025 Daily Horoscope Today - Zodiac Rankings",
+    "description": "Today's horoscope rankings for January 26, 2025. Discover which zodiac signs will have the best luck today!",
+    "keywords": "2025-01-26 Daily Horoscope Today, zodiac rankings, astrology forecast, horoscope 2025",
+    "rankings": [
+      {
+        "id": "leo",
+        "name": { "en": "Leo", "zh": "狮子座" },
+        "emoji": "♌",
+        "level": "excellent",
+        "score": 95,
+        "rank": 1,
+        "description": "Your stars are perfectly aligned for achievement and joy."
+      },
+      {
+        "id": "aries",
+        "name": { "en": "Aries", "zh": "白羊座" },
+        "emoji": "♈",
+        "level": "excellent",
+        "score": 92,
+        "rank": 2,
+        "description": "Exceptional opportunities and positive energy await you today."
+      },
+      {
+        "id": "sagittarius",
+        "name": { "en": "Sagittarius", "zh": "射手座" },
+        "emoji": "♐",
+        "level": "good",
+        "score": 88,
+        "rank": 3,
+        "description": "Positive developments are on the horizon."
+      }
+    ]
+  },
+  "zh": {
+    "title": "2025年1月26日每日星座运势 - 今日运势排行榜",
+    "description": "2025年1月26日今日星座运势排行榜，看看哪个星座今天运气最好！",
+    "keywords": "2025-01-26每日星座运势，星座排行榜，占星预测，2025年运势",
+    "rankings": [
+      {
+        "id": "leo",
+        "name": { "en": "Leo", "zh": "狮子座" },
+        "emoji": "♌",
+        "level": "excellent",
+        "score": 95,
+        "rank": 1,
+        "description": "你的星象完美对齐，预示着成就和喜悦。"
+      },
+      {
+        "id": "aries",
+        "name": { "en": "Aries", "zh": "白羊座" },
+        "emoji": "♈",
+        "level": "excellent",
+        "score": 92,
+        "rank": 2,
+        "description": "今天将带来非凡的机遇和正能量。"
+      },
+      {
+        "id": "sagittarius",
+        "name": { "en": "Sagittarius", "zh": "射手座" },
+        "emoji": "♐",
+        "level": "good",
+        "score": 88,
+        "rank": 3,
+        "description": "积极的发展即将到来。"
+      }
+    ]
+  }
+}
