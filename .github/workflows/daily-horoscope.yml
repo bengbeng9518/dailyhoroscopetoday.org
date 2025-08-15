@@ -38,22 +38,29 @@ jobs:
     
     - name: Commit and push changes
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git pull origin main --rebase
-        git add .
-        git diff --staged --quiet || git commit -m "Generate daily horoscope for $(date +'%Y-%m-%d')"
-        git push
-    
-    - name: Deploy to Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
-        cname: dailyhoroscopetoday.org
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # 检查是否有更改
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Found changes, committing..."
+            git add .
+            git commit -m "Update daily horoscope data for $(date +'%Y-%m-%d')"
+          else
+            echo "No changes to commit"
+          fi
+          
+          # 拉取最新更改
+          echo "Pulling latest changes..."
+          git pull origin main --rebase || git pull origin main
+          
+          # 推送更改
+          echo "Pushing changes..."
+          git push origin main
 
 
 permissions:
   contents: write
   pages: write
+
   id-token: write
