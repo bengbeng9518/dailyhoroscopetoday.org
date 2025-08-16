@@ -1,0 +1,306 @@
+{
+  "date": "2025-08-16",
+  "timestamp": 1755308296876,
+  "en": {
+    "title": "August 16, 2025 Daily Horoscope Today - Zodiac Rankings",
+    "description": "Today's horoscope rankings for August 16, 2025. Discover which zodiac signs will have the best luck today!",
+    "keywords": "2025-08-16 Daily Horoscope Today, zodiac rankings, astrology forecast, horoscope 2025",
+    "rankings": [
+      {
+        "id": "libra",
+        "name": {
+          "en": "Libra",
+          "zh": "天秤座"
+        },
+        "emoji": "♎",
+        "level": "excellent",
+        "score": 98,
+        "rank": 1,
+        "description": "Today brings exceptional opportunities and positive energy."
+      },
+      {
+        "id": "pisces",
+        "name": {
+          "en": "Pisces",
+          "zh": "双鱼座"
+        },
+        "emoji": "♓",
+        "level": "excellent",
+        "score": 98,
+        "rank": 2,
+        "description": "Your stars are perfectly aligned for achievement and joy."
+      },
+      {
+        "id": "leo",
+        "name": {
+          "en": "Leo",
+          "zh": "狮子座"
+        },
+        "emoji": "♌",
+        "level": "excellent",
+        "score": 97,
+        "rank": 3,
+        "description": "A day filled with success and wonderful surprises awaits."
+      },
+      {
+        "id": "aquarius",
+        "name": {
+          "en": "Aquarius",
+          "zh": "水瓶座"
+        },
+        "emoji": "♒",
+        "level": "excellent",
+        "score": 96,
+        "rank": 4,
+        "description": "A day filled with success and wonderful surprises awaits."
+      },
+      {
+        "id": "aries",
+        "name": {
+          "en": "Aries",
+          "zh": "白羊座"
+        },
+        "emoji": "♈",
+        "level": "good",
+        "score": 88,
+        "rank": 5,
+        "description": "Today offers steady progress and satisfaction."
+      },
+      {
+        "id": "taurus",
+        "name": {
+          "en": "Taurus",
+          "zh": "金牛座"
+        },
+        "emoji": "♉",
+        "level": "good",
+        "score": 86,
+        "rank": 6,
+        "description": "Today offers steady progress and satisfaction."
+      },
+      {
+        "id": "cancer",
+        "name": {
+          "en": "Cancer",
+          "zh": "巨蟹座"
+        },
+        "emoji": "♋",
+        "level": "good",
+        "score": 83,
+        "rank": 7,
+        "description": "Positive developments are on the horizon."
+      },
+      {
+        "id": "sagittarius",
+        "name": {
+          "en": "Sagittarius",
+          "zh": "射手座"
+        },
+        "emoji": "♐",
+        "level": "good",
+        "score": 77,
+        "rank": 8,
+        "description": "A favorable day with good prospects ahead."
+      },
+      {
+        "id": "scorpio",
+        "name": {
+          "en": "Scorpio",
+          "zh": "天蝎座"
+        },
+        "emoji": "♏",
+        "level": "good",
+        "score": 76,
+        "rank": 9,
+        "description": "A favorable day with good prospects ahead."
+      },
+      {
+        "id": "capricorn",
+        "name": {
+          "en": "Capricorn",
+          "zh": "摩羯座"
+        },
+        "emoji": "♑",
+        "level": "average",
+        "score": 68,
+        "rank": 10,
+        "description": "A balanced day with mixed opportunities."
+      },
+      {
+        "id": "gemini",
+        "name": {
+          "en": "Gemini",
+          "zh": "双子座"
+        },
+        "emoji": "♊",
+        "level": "average",
+        "score": 67,
+        "rank": 11,
+        "description": "Steady energy with moderate progress expected."
+      },
+      {
+        "id": "virgo",
+        "name": {
+          "en": "Virgo",
+          "zh": "处女座"
+        },
+        "emoji": "♍",
+        "level": "average",
+        "score": 55,
+        "rank": 12,
+        "description": "A balanced day with mixed opportunities."
+      }
+    ]
+  },
+  "zh": {
+    "title": "2025年8月16日每日星座运势 - 今日运势排行榜",
+    "description": "2025年8月16日今日星座运势排行榜，看看哪个星座今天运气最好！",
+    "keywords": "2025-08-16每日星座运势，星座排行榜，占星预测，2025年运势",
+    "rankings": [
+      {
+        "id": "libra",
+        "name": {
+          "en": "Libra",
+          "zh": "天秤座"
+        },
+        "emoji": "♎",
+        "level": "excellent",
+        "score": 98,
+        "rank": 1,
+        "description": "今天将带来非凡的机遇和正能量。"
+      },
+      {
+        "id": "pisces",
+        "name": {
+          "en": "Pisces",
+          "zh": "双鱼座"
+        },
+        "emoji": "♓",
+        "level": "excellent",
+        "score": 98,
+        "rank": 2,
+        "description": "今天将带来非凡的机遇和正能量。"
+      },
+      {
+        "id": "leo",
+        "name": {
+          "en": "Leo",
+          "zh": "狮子座"
+        },
+        "emoji": "♌",
+        "level": "excellent",
+        "score": 97,
+        "rank": 3,
+        "description": "你的星象完美对齐，预示着成就和喜悦。"
+      },
+      {
+        "id": "aquarius",
+        "name": {
+          "en": "Aquarius",
+          "zh": "水瓶座"
+        },
+        "emoji": "♒",
+        "level": "excellent",
+        "score": 96,
+        "rank": 4,
+        "description": "充满成功和美好惊喜的一天等待着你。"
+      },
+      {
+        "id": "aries",
+        "name": {
+          "en": "Aries",
+          "zh": "白羊座"
+        },
+        "emoji": "♈",
+        "level": "good",
+        "score": 88,
+        "rank": 5,
+        "description": "积极的发展即将到来。"
+      },
+      {
+        "id": "taurus",
+        "name": {
+          "en": "Taurus",
+          "zh": "金牛座"
+        },
+        "emoji": "♉",
+        "level": "good",
+        "score": 86,
+        "rank": 6,
+        "description": "积极的发展即将到来。"
+      },
+      {
+        "id": "cancer",
+        "name": {
+          "en": "Cancer",
+          "zh": "巨蟹座"
+        },
+        "emoji": "♋",
+        "level": "good",
+        "score": 83,
+        "rank": 7,
+        "description": "有利的一天，前景良好。"
+      },
+      {
+        "id": "sagittarius",
+        "name": {
+          "en": "Sagittarius",
+          "zh": "射手座"
+        },
+        "emoji": "♐",
+        "level": "good",
+        "score": 77,
+        "rank": 8,
+        "description": "今天提供稳定的进步和满足感。"
+      },
+      {
+        "id": "scorpio",
+        "name": {
+          "en": "Scorpio",
+          "zh": "天蝎座"
+        },
+        "emoji": "♏",
+        "level": "good",
+        "score": 76,
+        "rank": 9,
+        "description": "积极的发展即将到来。"
+      },
+      {
+        "id": "capricorn",
+        "name": {
+          "en": "Capricorn",
+          "zh": "摩羯座"
+        },
+        "emoji": "♑",
+        "level": "average",
+        "score": 68,
+        "rank": 10,
+        "description": "平衡的一天，机遇参半。"
+      },
+      {
+        "id": "gemini",
+        "name": {
+          "en": "Gemini",
+          "zh": "双子座"
+        },
+        "emoji": "♊",
+        "level": "average",
+        "score": 67,
+        "rank": 11,
+        "description": "需要耐心和仔细规划的一天。"
+      },
+      {
+        "id": "virgo",
+        "name": {
+          "en": "Virgo",
+          "zh": "处女座"
+        },
+        "emoji": "♍",
+        "level": "average",
+        "score": 55,
+        "rank": 12,
+        "description": "需要耐心和仔细规划的一天。"
+      }
+    ]
+  }
+}
